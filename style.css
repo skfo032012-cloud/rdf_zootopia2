@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #FFB84C;   /* Warm Yellow */
+    --secondary-color: #F16767; /* Soft Red */
+    --accent-color: #A459D1;    /* Purple */
+    --bg-color: #F5F7F8;        /* Light Grey/White */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --bot-msg-bg: #E3F6FF;      /* Light Blue */
+    --user-msg-bg: #FFEBB7;     /* Light Orange */
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFB84C 0%, #F16767 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 95%;
+    height: 95%;
+    background: var(--glass-bg);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+header h1 {
+    font-family: 'Jua', sans-serif;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 0px #fff;
+}
+
+header p {
+    font-family: 'Jua', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0 0 0;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    overflow: hidden; /* Ensure split view fits */
+}
+
+.glass-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    border: 2px solid #eee;
+    overflow: hidden;
+}
+
+/* Graph Container */
+#graph-container {
+    flex: 2;
+    position: relative;
+    background: #fdfdfd;
+}
+
+/* Chat Container */
+#chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    min-width: 300px;
+}
+
+.chat-header {
+    background: var(--accent-color);
+    color: white;
+    padding: 15px;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-icon {
+    width: 30px;
+    height: 30px;
+    background: white;
+    color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+#chat-history {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    line-height: 1.4;
+    font-size: 1rem;
+    position: relative;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.bot-message {
+    background: var(--bot-msg-bg);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.user-message {
+    background: var(--user-msg-bg);
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-input-area {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    border-top: 2px solid #eee;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#user-input:focus {
+    border-color: var(--primary-color);
+}
+
+#send-btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#send-btn:hover {
+    transform: scale(1.1);
+    background: #ffaa33;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    #chat-container {
+        flex: 1;
+    }
+    #graph-container {
+        flex: 1;
+    }
+}

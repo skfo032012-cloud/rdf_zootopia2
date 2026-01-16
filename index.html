@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주토피아 2 이야기 탐험</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1><i class="fas fa-paw"></i> 주토피아 2 이야기 탐험</h1>
+            <p>그래프를 클릭하거나 챗봇에게 물어보세요!</p>
+        </header>
+
+        <main>
+            <div id="graph-container" class="glass-panel">
+                <!-- Vis.js Graph will be rendered here -->
+            </div>
+
+            <div id="chat-container" class="glass-panel">
+                <div class="chat-header">
+                    <div class="avatar-icon"><i class="fas fa-robot"></i></div>
+                    <span>주토피아 척척박사</span>
+                </div>
+                <div id="chat-history">
+                    <div class="message bot-message">
+                        안녕! 나는 주토피아의 새로운 사건을 알려주는 척척박사야. 궁금한 게 있니? <br>
+                        "주디는 누구야?" 또는 "닉은 누구야?"라고 물어봐 줘!
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="궁금한 내용을 입력해요...">
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

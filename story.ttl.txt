@@ -1,0 +1,85 @@
+@prefix ex:   <http://example.org/zootopia2#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+########## 등장인물 ##########
+
+ex:JudyHopps
+    rdf:type foaf:Person ;
+    foaf:name "주디 홉스" ;
+    ex:role ex:PoliceOfficer ;
+    ex:partner ex:NickWilde ;
+    ex:boss ex:ChiefBogo ;
+    ex:investigates ex:Event_MysteriousDisappearance .
+
+ex:NickWilde
+    rdf:type foaf:Person ;
+    foaf:name "닉 와일드" ;
+    ex:role ex:PoliceOfficer ;
+    ex:partner ex:JudyHopps ;
+    ex:formerRole ex:ConArtist ;
+    ex:investigates ex:Event_MysteriousDisappearance .
+
+ex:ChiefBogo
+    rdf:type foaf:Person ;
+    foaf:name "보고 서장" ;
+    ex:role ex:PoliceChief ;
+    ex:commands ex:JudyHopps , ex:NickWilde .
+
+ex:Clawhauser
+    rdf:type foaf:Person ;
+    foaf:name "클로하우저" ;
+    ex:role ex:DeskSergeant ;
+    ex:likes ex:Donuts ;
+    ex:allyOf ex:JudyHopps .
+
+ex:MrBig
+    rdf:type foaf:Person ;
+    foaf:name "미스터 빅" ;
+    ex:role ex:MafiaBoss ;
+    ex:helps ex:JudyHopps .
+
+ex:NewVillain
+    rdf:type foaf:Person ;
+    foaf:name "수상한 그림자" ;
+    ex:role ex:Villain ;
+    ex:antagonistOf ex:JudyHopps , ex:NickWilde .
+
+########## 직업/역할 ##########
+
+ex:PoliceOfficer rdf:type ex:Occupation ; ex:label "경찰관" .
+ex:PoliceChief rdf:type ex:Occupation ; ex:label "경찰 서장" .
+ex:DeskSergeant rdf:type ex:Occupation ; ex:label "민원 담당" .
+ex:MafiaBoss rdf:type ex:Occupation ; ex:label "마피아 보스" .
+ex:Villain rdf:type ex:Occupation ; ex:label "악당" .
+ex:ConArtist rdf:type ex:Occupation ; ex:label "사기꾼" .
+
+########## 사건 ##########
+
+ex:Event_MysteriousDisappearance
+    rdf:type ex:Event ;
+    ex:eventName "미스터리 실종 사건" ;
+    ex:involves ex:JudyHopps , ex:NickWilde ;
+    ex:location ex:ZootopiaCity .
+
+ex:Event_ChaseInRainforest
+    rdf:type ex:Event ;
+    ex:eventName "열대우림 추격전" ;
+    ex:involves ex:JudyHopps , ex:NewVillain ;
+    ex:leadsTo ex:ClueDiscovery .
+
+ex:Event_Undercover
+    rdf:type ex:Event ;
+    ex:eventName "잠입 수사" ;
+    ex:involves ex:NickWilde ;
+    ex:risks ex:Danger .
+
+########## 배경 ##########
+
+ex:ZootopiaCity
+    rdf:type ex:Location ;
+    ex:placeName "주토피아" .
+
+ex:RainforestDistrict
+    rdf:type ex:Location ;
+    ex:placeName "열대우림 구역" .
